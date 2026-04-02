@@ -11,6 +11,7 @@ import {
   FREE_TEMPLATE_IDS,
 } from "../lib/types";
 import { generatePDF } from "../lib/pdf";
+import { useProStatus } from "../lib/useProStatus";
 import CardInput from "./CardInput";
 import Preview from "./Preview";
 import TemplateGrid from "./TemplateGrid";
@@ -28,7 +29,7 @@ export default function FlashcardMaker() {
   const [template, setTemplate] = useState<Template>(TEMPLATES[0]);
   const [doubleSided, setDoubleSided] = useState(false);
   const [activeTab, setActiveTab] = useState<"cards" | "style">("cards");
-  const isPro = false; // Will be gated via Stripe in a later task
+  const { isPro } = useProStatus();
 
   const validCards = cards.filter((c) => c.term.trim() || c.definition.trim());
   const atLimit = !isPro && cards.length >= FREE_CARD_LIMIT;

@@ -1,4 +1,5 @@
 import FlashcardMaker from "./components/FlashcardMaker";
+import ProBadge from "./components/ProBadge";
 
 export default function Home() {
   return (
@@ -13,12 +14,7 @@ export default function Home() {
               Create custom flashcards and download print-ready PDFs
             </p>
           </div>
-          <a
-            href="/pricing"
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800"
-          >
-            Upgrade to Pro
-          </a>
+          <ProBadge />
         </div>
       </header>
 
