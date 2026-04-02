@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ProCard from "./ProCard";
 
 export const metadata: Metadata = {
   title: "Pricing — Printable Flashcard Maker",
@@ -67,35 +68,7 @@ export default function PricingPage() {
           </div>
 
           {/* Pro */}
-          <div className="rounded-xl border-2 border-zinc-900 bg-white p-6">
-            <h2 className="text-lg font-semibold text-zinc-900">Pro</h2>
-            <p className="mt-1 text-sm text-zinc-500">
-              Unlimited flashcards, all features
-            </p>
-            <div className="mt-4 flex items-baseline gap-3">
-              <div>
-                <span className="text-4xl font-bold text-zinc-900">$2.99</span>
-                <span className="text-zinc-500">/mo</span>
-              </div>
-              <span className="text-sm text-zinc-400">or $19.99/yr</span>
-            </div>
-            <div className="mt-6 space-y-2">
-              <p className="text-center text-xs text-zinc-500">
-                Stripe payment links will be available soon.
-              </p>
-            </div>
-            <ul className="mt-6 space-y-3">
-              {features.map((f) => (
-                <li
-                  key={f.name}
-                  className="flex justify-between text-sm text-zinc-600"
-                >
-                  <span>{f.name}</span>
-                  <span className="font-medium text-zinc-900">{f.pro}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ProCard features={features} />
         </div>
       </main>
     </div>
