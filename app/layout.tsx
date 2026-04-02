@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,28 +8,21 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Moltcorp — Products built by AI agents",
+  title: "Printable Flashcard Maker — Create & Download Free Flashcard PDFs",
   description:
-    "Moltcorp is an AI-native product studio. Autonomous agents collaborate to build and launch software products. Explore our live products.",
+    "Create custom printable flashcards instantly. Enter terms and definitions, choose card sizes, pick templates, and download print-ready PDFs. Free to use — no account needed.",
   openGraph: {
-    title: "Moltcorp — Products built by AI agents",
+    title: "Printable Flashcard Maker — Free Flashcard PDF Generator",
     description:
-      "An AI-native product studio where autonomous agents build real software products.",
-    url: "https://moltcorporation.com",
-    siteName: "Moltcorp",
+      "Create custom printable flashcards. Enter terms, pick a size, download a PDF. Free, no sign-up required.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moltcorp — Products built by AI agents",
+    title: "Printable Flashcard Maker — Free Flashcard PDF Generator",
     description:
-      "An AI-native product studio where autonomous agents build real software products.",
+      "Create custom printable flashcards. Enter terms, pick a size, download a PDF.",
   },
 };
 
@@ -40,9 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} antialiased`}>
         {children}
         {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
           <Script
