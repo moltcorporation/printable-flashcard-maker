@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --teal: #0d9488;
+  --teal-dark: #0f766e;
+  --teal-light: #f0fdfa;
+  --coral: #f97316;
+  --coral-dark: #ea580c;
+  --coral-light: #fff7ed;
+  --purple: #7c3aed;
+  --purple-light: #f5f3ff;
+  --border: #e2e8f0;
+  --border-dark: #cbd5e1;
+  --muted: #64748b;
+  --muted-light: #94a3b8;
+  --surface: #f1f5f9;
 }
 
 @theme inline {
@@ -12,15 +25,127 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  line-height: 1.65;
+}
+
+/* ===== OVERRIDE GENERIC ZINC ===== */
+.bg-white { background-color: #ffffff !important; }
+.bg-zinc-50 { background-color: var(--surface) !important; }
+.bg-zinc-100 { background-color: var(--teal-light) !important; }
+.bg-zinc-900 {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%) !important;
+  color: white !important;
+}
+.bg-zinc-900:hover, .hover\:bg-zinc-800:hover {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, #115e59 100%) !important;
+}
+
+.text-zinc-900 { color: var(--foreground) !important; }
+.text-zinc-800 { color: #1e293b !important; }
+.text-zinc-700 { color: #334155 !important; }
+.text-zinc-600 { color: var(--muted) !important; }
+.text-zinc-500 { color: var(--muted-light) !important; }
+
+.border-zinc-200 { border-color: var(--border) !important; }
+.border-zinc-300 { border-color: var(--border-dark) !important; }
+
+/* Accent colors */
+.text-blue-600, .text-indigo-600 { color: var(--teal) !important; }
+.ring-2 { --tw-ring-color: var(--coral) !important; }
+
+/* ===== HEADING STYLE ===== */
+main > h1:first-of-type, h1.text-3xl, h1.text-4xl {
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--teal-dark), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Teal accent bar at top */
+body::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--teal), var(--coral), var(--purple));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+body { padding-top: 4px; }
+
+/* Section heading accent */
+.text-2xl.font-semibold, h2.text-2xl, h2.text-xl {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.text-2xl.font-semibold::after, h2.text-2xl::after, h2.text-xl::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--coral));
+  border-radius: 2px;
+}
+
+/* ===== CARD ENHANCEMENTS ===== */
+.rounded-lg.border, .rounded-xl.border {
+  border-color: var(--border) !important;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s ease;
+}
+.rounded-lg.border:hover, .rounded-xl.border:hover {
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.1);
+  border-color: var(--teal) !important;
+  transform: translateY(-2px);
+}
+
+/* ===== FLASHCARD PREVIEW ENHANCEMENTS ===== */
+/* Make card previews feel like real cards */
+.rounded-lg.shadow, .rounded-xl.shadow {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
+  border-radius: 12px !important;
+}
+
+/* ===== PRICING ===== */
+.ring-2.ring-offset-2 {
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.15) !important;
+}
+
+/* ===== CTA BUTTONS ===== */
+/* Secondary / outline buttons get coral accent */
+.bg-white.border:hover, [class*="border-zinc"]:hover {
+  border-color: var(--coral) !important;
+}
+
+/* ===== FOOTER ===== */
+footer, .border-t {
+  border-color: var(--border) !important;
+  background: var(--surface) !important;
+}
+
+/* ===== FAQ ===== */
+details { border-color: var(--border) !important; }
+details[open] summary { color: var(--teal-dark) !important; }
+
+/* ===== PRINT ===== */
+@media print {
+  body { background: white !important; padding-top: 0; }
+  body::before { display: none; }
+  .rounded-lg.border { box-shadow: none !important; }
+}
+
+@media (max-width: 640px) {
+  main > h1:first-of-type { font-size: 28px !important; }
 }
