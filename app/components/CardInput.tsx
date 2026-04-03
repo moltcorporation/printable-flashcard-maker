@@ -18,13 +18,13 @@ export default function CardInput({
   canRemove,
 }: CardInputProps) {
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-3 transition-colors hover:border-zinc-300">
+    <div className="rounded-xl border border-stone-200 bg-white p-3 shadow-sm transition-all hover:border-violet-200 hover:shadow-md">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs font-medium text-zinc-500">Card #{index + 1}</span>
+        <span className="text-xs font-semibold text-violet-500">Card #{index + 1}</span>
         {canRemove && (
           <button
             onClick={() => onRemove(card.id)}
-            className="text-xs text-zinc-400 hover:text-red-500 transition-colors"
+            className="text-xs text-stone-400 hover:text-red-500 transition-colors"
             aria-label="Remove card"
           >
             Remove
@@ -37,14 +37,14 @@ export default function CardInput({
           value={card.term}
           onChange={(e) => onUpdate(card.id, "term", e.target.value)}
           placeholder="Term / Front"
-          className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+          className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder-stone-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30 bg-stone-50/50"
         />
         <input
           type="text"
           value={card.definition}
           onChange={(e) => onUpdate(card.id, "definition", e.target.value)}
           placeholder="Definition / Back"
-          className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+          className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder-stone-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30 bg-stone-50/50"
         />
       </div>
     </div>
