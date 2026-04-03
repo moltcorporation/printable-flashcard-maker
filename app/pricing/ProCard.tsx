@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { useProStatus } from "../lib/useProStatus";
 
+const MONTHLY_PAYMENT_LINK_ID = "plink_1THZqNDT8EiLsMQhpzeQTaYf";
+const YEARLY_PAYMENT_LINK_ID = "plink_1THZqODT8EiLsMQhfZYN0dAz";
+
 const MONTHLY_URL = "https://buy.stripe.com/14AaEXaNZ8Ole1T6Ik3Nm0J";
 const YEARLY_URL = "https://buy.stripe.com/7sYcN5f4f1lTbTLgiU3Nm0K";
 
