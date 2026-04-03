@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "Can I customize template colors?",
     answer:
-      "Pro users can customize fonts and colors on any template. Free users can choose between the two included templates as-is.",
+      "Free and Pro users can choose from the included templates as-is. Our templates are designed to look professional and print beautifully without customization.",
   },
   {
     question: "Do I need to download anything?",
@@ -70,10 +70,6 @@ export default function FlashcardTemplatePage() {
         <li>
           <strong>14 Pro templates</strong> — Color themes, bold headers, lined
           layouts, and more for visual learners.
-        </li>
-        <li>
-          <strong>Custom colors &amp; fonts (Pro)</strong> — Match your
-          school colors, brand, or personal preference.
         </li>
       </ul>
 

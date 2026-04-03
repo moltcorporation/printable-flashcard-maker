@@ -13,7 +13,6 @@ const features = [
   { name: "Templates", free: "2 basic", pro: "16 premium" },
   { name: "PDF watermark", free: "Yes", pro: "None" },
   { name: "Double-sided layout", free: "No", pro: "Yes" },
-  { name: "Custom fonts & colors", free: "No", pro: "Yes" },
 ];
 
 export default function PricingPage() {

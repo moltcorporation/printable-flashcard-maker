@@ -69,8 +69,8 @@ export default function PrintableFlashcardsPage() {
           at a time, or paste a whole list (tab-separated or colon-separated).
         </li>
         <li>
-          <strong>Choose your style</strong> — Pick a card size, select a
-          template, and customize colors if you have Pro.
+          <strong>Choose your style</strong> — Pick a card size and select a
+          template from our collection.
         </li>
         <li>
           <strong>Download &amp; print</strong> — Hit &ldquo;Download
@@ -84,8 +84,8 @@ export default function PrintableFlashcardsPage() {
         The free tier gives you 5 cards per set, one card size, and two clean
         templates — more than enough for a quick quiz or review session.
         Upgrade to Pro for unlimited cards, all sizes including 4&quot;x6&quot;
-        and A6, 16 premium templates, double-sided printing, custom fonts and
-        colors, and watermark-free PDFs.
+        and A6, 16 premium templates, double-sided printing, and watermark-free
+        PDFs.
       </p>
     </LandingPage>
   );
