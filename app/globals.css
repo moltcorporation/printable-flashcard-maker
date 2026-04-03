@@ -1,21 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #1e293b;
-  --teal: #0d9488;
-  --teal-dark: #0f766e;
-  --teal-light: #f0fdfa;
-  --coral: #f97316;
-  --coral-dark: #ea580c;
-  --coral-light: #fff7ed;
-  --purple: #7c3aed;
-  --purple-light: #f5f3ff;
-  --border: #e2e8f0;
-  --border-dark: #cbd5e1;
-  --muted: #64748b;
-  --muted-light: #94a3b8;
-  --surface: #f1f5f9;
+  --background: #fffcf7;
+  --foreground: #2c2c2c;
+  --primary: #4f7a9d;
+  --primary-dark: #3d5f7d;
+  --primary-light: #e8f1f8;
+  --warm-accent: #d9a574;
+  --warm-accent-dark: #c4906f;
+  --warm-accent-light: #f5e8de;
+  --secondary: #6b9a7d;
+  --secondary-light: #e8f3ed;
+  --border: #dcc9b6;
+  --border-dark: #c9b5a0;
+  --muted: #706860;
+  --muted-light: #9a8c80;
+  --surface: #f5ede3;
+  --paper: #fffbf8;
 }
 
 @theme inline {
@@ -33,20 +34,20 @@ body {
 }
 
 /* ===== OVERRIDE GENERIC ZINC ===== */
-.bg-white { background-color: #ffffff !important; }
+.bg-white { background-color: var(--paper) !important; }
 .bg-zinc-50 { background-color: var(--surface) !important; }
-.bg-zinc-100 { background-color: var(--teal-light) !important; }
+.bg-zinc-100 { background-color: var(--primary-light) !important; }
 .bg-zinc-900 {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%) !important;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
   color: white !important;
 }
 .bg-zinc-900:hover, .hover\:bg-zinc-800:hover {
-  background: linear-gradient(135deg, var(--teal-dark) 0%, #115e59 100%) !important;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #2c4a5f 100%) !important;
 }
 
 .text-zinc-900 { color: var(--foreground) !important; }
-.text-zinc-800 { color: #1e293b !important; }
-.text-zinc-700 { color: #334155 !important; }
+.text-zinc-800 { color: #3a3a3a !important; }
+.text-zinc-700 { color: #5a5a5a !important; }
 .text-zinc-600 { color: var(--muted) !important; }
 .text-zinc-500 { color: var(--muted-light) !important; }
 
@@ -54,25 +55,25 @@ body {
 .border-zinc-300 { border-color: var(--border-dark) !important; }
 
 /* Accent colors */
-.text-blue-600, .text-indigo-600 { color: var(--teal) !important; }
-.ring-2 { --tw-ring-color: var(--coral) !important; }
+.text-blue-600, .text-indigo-600 { color: var(--primary) !important; }
+.ring-2 { --tw-ring-color: var(--warm-accent) !important; }
 
 /* ===== HEADING STYLE ===== */
 main > h1:first-of-type, h1.text-3xl, h1.text-4xl {
   font-weight: 800 !important;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--teal-dark), var(--purple));
+  background: linear-gradient(135deg, var(--primary-dark), var(--warm-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Teal accent bar at top */
+/* Warm accent bar at top */
 body::before {
   content: "";
   display: block;
   height: 4px;
-  background: linear-gradient(90deg, var(--teal), var(--coral), var(--purple));
+  background: linear-gradient(90deg, var(--primary), var(--warm-accent), var(--secondary));
   position: fixed;
   top: 0;
   left: 0;
@@ -95,19 +96,19 @@ body { padding-top: 4px; }
   left: 0;
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, var(--teal), var(--coral));
+  background: linear-gradient(90deg, var(--primary), var(--warm-accent));
   border-radius: 2px;
 }
 
 /* ===== CARD ENHANCEMENTS ===== */
 .rounded-lg.border, .rounded-xl.border {
   border-color: var(--border) !important;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 1px 4px rgba(44, 44, 44, 0.05);
   transition: all 0.2s ease;
 }
 .rounded-lg.border:hover, .rounded-xl.border:hover {
-  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.1);
-  border-color: var(--teal) !important;
+  box-shadow: 0 8px 24px rgba(79, 122, 157, 0.1);
+  border-color: var(--primary) !important;
   transform: translateY(-2px);
 }
 
@@ -120,13 +121,13 @@ body { padding-top: 4px; }
 
 /* ===== PRICING ===== */
 .ring-2.ring-offset-2 {
-  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(217, 165, 116, 0.15) !important;
 }
 
 /* ===== CTA BUTTONS ===== */
-/* Secondary / outline buttons get coral accent */
+/* Secondary / outline buttons get warm accent */
 .bg-white.border:hover, [class*="border-zinc"]:hover {
-  border-color: var(--coral) !important;
+  border-color: var(--warm-accent) !important;
 }
 
 /* ===== FOOTER ===== */
@@ -137,7 +138,7 @@ footer, .border-t {
 
 /* ===== FAQ ===== */
 details { border-color: var(--border) !important; }
-details[open] summary { color: var(--teal-dark) !important; }
+details[open] summary { color: var(--primary-dark) !important; }
 
 /* ===== PRINT ===== */
 @media print {
