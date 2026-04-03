@@ -100,13 +100,13 @@ export default function FlashcardMaker() {
       {/* Left panel — inputs */}
       <div className="space-y-4">
         {/* Tab switcher */}
-        <div className="flex gap-1 rounded-lg bg-zinc-100 p-1">
+        <div className="flex gap-1 rounded-lg bg-violet-100 p-1">
           <button
             onClick={() => setActiveTab("cards")}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               activeTab === "cards"
-                ? "bg-white text-zinc-900 shadow-sm"
-                : "text-zinc-600 hover:text-zinc-900"
+                ? "bg-white text-violet-900 shadow-sm"
+                : "text-violet-600 hover:text-violet-900"
             }`}
           >
             Cards ({cards.length}
@@ -116,8 +116,8 @@ export default function FlashcardMaker() {
             onClick={() => setActiveTab("style")}
             className={`flex-1 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
               activeTab === "style"
-                ? "bg-white text-zinc-900 shadow-sm"
-                : "text-zinc-600 hover:text-zinc-900"
+                ? "bg-white text-violet-900 shadow-sm"
+                : "text-violet-600 hover:text-violet-900"
             }`}
           >
             Style & Size
@@ -127,15 +127,15 @@ export default function FlashcardMaker() {
         {activeTab === "cards" && (
           <div className="space-y-3">
             {/* Bulk paste */}
-            <div className="rounded-lg border border-zinc-200 bg-white p-4">
-              <label className="block text-sm font-medium text-zinc-700">
+            <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
+              <label className="block text-sm font-semibold text-stone-800">
                 Bulk Import
               </label>
-              <p className="mb-2 text-xs text-zinc-500">
+              <p className="mb-2 text-xs text-stone-500">
                 Paste lines of &quot;term: definition&quot; or tab-separated pairs
               </p>
               <textarea
-                className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                className="w-full rounded-lg border border-stone-200 px-3 py-2 text-sm text-stone-900 placeholder-stone-400 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/30 bg-stone-50/50"
                 rows={3}
                 placeholder={"Photosynthesis: Converting sunlight to energy\nMitosis: Cell division process"}
                 onPaste={(e) => {
@@ -172,16 +172,16 @@ export default function FlashcardMaker() {
             <button
               onClick={addCard}
               disabled={atLimit}
-              className={`w-full rounded-lg border-2 border-dashed px-4 py-3 text-sm font-medium transition-colors ${
+              className={`w-full rounded-xl border-2 border-dashed px-4 py-3 text-sm font-semibold transition-colors ${
                 atLimit
-                  ? "border-zinc-200 text-zinc-400 cursor-not-allowed"
-                  : "border-zinc-300 text-zinc-600 hover:border-zinc-400 hover:text-zinc-800"
+                  ? "border-stone-200 text-stone-400 cursor-not-allowed"
+                  : "border-violet-300 text-violet-600 hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700"
               }`}
             >
               {atLimit ? (
                 <span>
                   Free limit reached ({FREE_CARD_LIMIT} cards) —{" "}
-                  <a href="/pricing" className="text-blue-600 underline">
+                  <a href="/pricing" className="text-violet-600 underline">
                     Upgrade to Pro
                   </a>
                 </span>
@@ -195,8 +195,8 @@ export default function FlashcardMaker() {
         {activeTab === "style" && (
           <div className="space-y-4">
             {/* Card size */}
-            <div className="rounded-lg border border-zinc-200 bg-white p-4">
-              <label className="block text-sm font-medium text-zinc-700 mb-3">
+            <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
+              <label className="block text-sm font-semibold text-stone-800 mb-3">
                 Card Size
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -208,12 +208,12 @@ export default function FlashcardMaker() {
                         if (config.pro && !isPro) return;
                         setSize(key);
                       }}
-                      className={`relative rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                      className={`relative rounded-lg border-2 px-3 py-2 text-sm font-semibold transition-colors ${
                         size === key
-                          ? "border-zinc-900 bg-zinc-900 text-white"
+                          ? "border-violet-500 bg-violet-600 text-white"
                           : config.pro && !isPro
-                          ? "border-zinc-200 text-zinc-400 cursor-not-allowed"
-                          : "border-zinc-300 text-zinc-700 hover:border-zinc-400"
+                          ? "border-stone-200 text-stone-400 cursor-not-allowed"
+                          : "border-stone-200 text-stone-700 hover:border-violet-300"
                       }`}
                     >
                       {config.label}
@@ -229,8 +229,8 @@ export default function FlashcardMaker() {
             </div>
 
             {/* Templates */}
-            <div className="rounded-lg border border-zinc-200 bg-white p-4">
-              <label className="block text-sm font-medium text-zinc-700 mb-3">
+            <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
+              <label className="block text-sm font-semibold text-stone-800 mb-3">
                 Template
               </label>
               <TemplateGrid
@@ -243,7 +243,7 @@ export default function FlashcardMaker() {
             </div>
 
             {/* Double-sided */}
-            <div className="rounded-lg border border-zinc-200 bg-white p-4">
+            <div className="rounded-xl border border-stone-200 bg-white p-4 shadow-sm">
               <label className="flex items-center gap-3">
                 <input
                   type="checkbox"
@@ -253,9 +253,9 @@ export default function FlashcardMaker() {
                     setDoubleSided(e.target.checked);
                   }}
                   disabled={!isPro}
-                  className="h-4 w-4 rounded border-zinc-300"
+                  className="h-4 w-4 rounded border-stone-300 accent-violet-600"
                 />
-                <span className="text-sm font-medium text-zinc-700">
+                <span className="text-sm font-semibold text-stone-800">
                   Double-sided layout
                   {!isPro && (
                     <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-bold text-amber-700">
@@ -264,7 +264,7 @@ export default function FlashcardMaker() {
                   )}
                 </span>
               </label>
-              <p className="ml-7 mt-1 text-xs text-zinc-500">
+              <p className="ml-7 mt-1 text-xs text-stone-500">
                 Back pages are mirrored for duplex printing alignment
               </p>
             </div>
@@ -279,19 +279,19 @@ export default function FlashcardMaker() {
           <button
             onClick={handleDownload}
             disabled={validCards.length === 0}
-            className={`mt-4 w-full rounded-lg px-4 py-3 text-sm font-semibold transition-colors ${
+            className={`mt-4 w-full rounded-xl px-4 py-3 text-sm font-bold transition-all ${
               validCards.length === 0
-                ? "bg-zinc-200 text-zinc-500 cursor-not-allowed"
-                : "bg-zinc-900 text-white hover:bg-zinc-800"
+                ? "bg-stone-200 text-stone-500 cursor-not-allowed"
+                : "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white hover:from-violet-500 hover:to-fuchsia-500 shadow-lg shadow-violet-200"
             }`}
           >
             Download PDF ({validCards.length} card
             {validCards.length !== 1 ? "s" : ""})
           </button>
           {!isPro && (
-            <p className="mt-2 text-center text-xs text-zinc-500">
+            <p className="mt-2 text-center text-xs text-stone-500">
               Free: {FREE_CARD_LIMIT} cards, 3&quot;x5&quot; only, watermarked PDF.{" "}
-              <a href="/pricing" className="text-blue-600 underline">
+              <a href="/pricing" className="text-violet-600 font-medium underline">
                 Unlock everything with Pro
               </a>
             </p>

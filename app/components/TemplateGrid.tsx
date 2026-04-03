@@ -28,10 +28,10 @@ export default function TemplateGrid({
             onClick={() => onSelect(t)}
             className={`relative flex flex-col items-center rounded-lg border-2 p-2 transition-all ${
               isSelected
-                ? "border-zinc-900 shadow-sm"
+                ? "border-violet-500 bg-violet-50 shadow-sm"
                 : locked
-                ? "border-zinc-200 opacity-60 cursor-not-allowed"
-                : "border-zinc-200 hover:border-zinc-400"
+                ? "border-stone-200 opacity-60 cursor-not-allowed"
+                : "border-stone-200 hover:border-violet-300 hover:shadow-sm"
             }`}
             title={t.name}
           >
@@ -48,7 +48,7 @@ export default function TemplateGrid({
                 style={{ backgroundColor: t.headerBg }}
               />
             </div>
-            <span className="text-[10px] font-medium text-zinc-600">
+            <span className={`text-[10px] font-medium ${isSelected ? "text-violet-700" : "text-stone-600"}`}>
               {t.name}
             </span>
             {locked && (

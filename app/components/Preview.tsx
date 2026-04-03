@@ -139,22 +139,22 @@ export default function Preview({ cards, size, template, isPro }: PreviewProps) 
   }, [cards, size, template, isPro, sizeConfig]);
 
   return (
-    <div className="rounded-lg border border-zinc-200 bg-white p-3">
+    <div className="rounded-xl border border-stone-200 bg-white p-3 shadow-sm">
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs font-medium text-zinc-500">
+        <span className="text-xs font-semibold text-violet-500">
           Preview — Page 1 of{" "}
           {Math.ceil(
             (isPro ? cards.length : Math.min(cards.length, FREE_CARD_LIMIT)) /
               sizeConfig.cardsPerPage
           ) * 2 || 1}
         </span>
-        <span className="text-xs text-zinc-400">
+        <span className="text-xs text-stone-400">
           {sizeConfig.label} / {sizeConfig.cardsPerPage} per page
         </span>
       </div>
       <canvas
         ref={canvasRef}
-        className="w-full rounded border border-zinc-100"
+        className="w-full rounded-lg border border-stone-100"
         style={{ aspectRatio: "8.5/11" }}
       />
     </div>
