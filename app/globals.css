@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf6f1;
-  --foreground: #2d2a26;
-  --primary: #0d7377;
-  --primary-dark: #095c5f;
-  --primary-light: #e6f5f5;
-  --accent: #e8a838;
-  --accent-dark: #c48b1e;
-  --accent-light: #fef6e6;
-  --secondary: #6b8f71;
-  --secondary-light: #e8f3ed;
-  --border: #e0d5c7;
-  --border-dark: #c9b9a5;
-  --muted: #7a7067;
-  --muted-light: #a09689;
-  --surface: #f3ece3;
-  --paper: #fffcf8;
-  --card-shadow: rgba(45, 42, 38, 0.08);
+  --background: #fdfaf5;
+  --foreground: #1a1a1a;
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --primary-light: #dbeafe;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --accent-light: #fef3c7;
+  --secondary: #10b981;
+  --secondary-light: #d1fae5;
+  --border: #e5e7eb;
+  --border-dark: #d1d5db;
+  --muted: #6b7280;
+  --muted-light: #9ca3af;
+  --surface: #f9fafb;
+  --paper: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
@@ -25,6 +25,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-poppins);
 }
 
 body {
