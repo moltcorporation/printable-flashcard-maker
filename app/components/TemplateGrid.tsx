@@ -26,13 +26,14 @@ export default function TemplateGrid({
           <button
             key={t.id}
             onClick={() => onSelect(t)}
-            className={`relative flex flex-col items-center rounded-lg border-2 p-2 transition-all ${
+            className="relative flex flex-col items-center rounded-xl border-2 p-2 transition-all"
+            style={
               isSelected
-                ? "border-violet-500 bg-violet-50 shadow-sm"
+                ? { borderColor: "var(--primary)", background: "var(--primary-light)" }
                 : locked
-                ? "border-stone-200 opacity-60 cursor-not-allowed"
-                : "border-stone-200 hover:border-violet-300 hover:shadow-sm"
-            }`}
+                ? { borderColor: "var(--border)", opacity: 0.6, cursor: "not-allowed" }
+                : { borderColor: "var(--border)" }
+            }
             title={t.name}
           >
             {/* Mini card preview */}
@@ -48,11 +49,17 @@ export default function TemplateGrid({
                 style={{ backgroundColor: t.headerBg }}
               />
             </div>
-            <span className={`text-[10px] font-medium ${isSelected ? "text-violet-700" : "text-stone-600"}`}>
+            <span
+              className="text-[10px] font-medium"
+              style={{ color: isSelected ? "var(--primary)" : "var(--muted)" }}
+            >
               {t.name}
             </span>
             {locked && (
-              <span className="absolute -right-1 -top-1 rounded-full bg-amber-400 px-1 py-0.5 text-[8px] font-bold text-amber-900">
+              <span
+                className="absolute -right-1 -top-1 rounded-full px-1 py-0.5 text-[8px] font-bold"
+                style={{ background: "var(--accent)", color: "white" }}
+              >
                 PRO
               </span>
             )}

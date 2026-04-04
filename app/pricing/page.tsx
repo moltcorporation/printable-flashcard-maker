@@ -18,39 +18,50 @@ const features = [
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-zinc-50 font-[family-name:var(--font-geist-sans)]">
-      <header className="border-b border-zinc-200 bg-white">
+    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]" style={{ background: "var(--background)" }}>
+      {/* Accent bar */}
+      <div className="h-1 bg-gradient-to-r from-[#0d7377] via-[#e8a838] to-[#6b8f71]" />
+      <header className="border-b" style={{ borderColor: "var(--border)", background: "var(--paper)" }}>
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
-          <a href="/" className="text-xl font-bold tracking-tight text-zinc-900">
-            Printable Flashcard Maker
+          <a href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0d7377] to-[#095c5f] flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                <rect x="2" y="4" width="16" height="14" rx="2" />
+                <rect x="6" y="6" width="16" height="14" rx="2" fill="white" fillOpacity="0.3" />
+              </svg>
+            </div>
+            <span className="text-lg font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
+              Flashcard Maker
+            </span>
           </a>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
         <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "var(--foreground)" }}>
             Simple pricing
           </h1>
-          <p className="mt-3 text-lg text-zinc-600">
+          <p className="mt-3 text-lg" style={{ color: "var(--muted)" }}>
             Create flashcards for free, or unlock everything with Pro.
           </p>
         </div>
 
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {/* Free */}
-          <div className="rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 className="text-lg font-semibold text-zinc-900">Free</h2>
-            <p className="mt-1 text-sm text-zinc-500">
+          <div className="rounded-2xl border p-6" style={{ borderColor: "var(--border)", background: "var(--paper)" }}>
+            <h2 className="text-lg font-bold" style={{ color: "var(--foreground)" }}>Free</h2>
+            <p className="mt-1 text-sm" style={{ color: "var(--muted-light)" }}>
               Great for trying it out
             </p>
             <p className="mt-4">
-              <span className="text-4xl font-bold text-zinc-900">$0</span>
-              <span className="text-zinc-500">/forever</span>
+              <span className="text-4xl font-extrabold" style={{ color: "var(--foreground)" }}>$0</span>
+              <span style={{ color: "var(--muted-light)" }}>/forever</span>
             </p>
             <a
               href="/"
-              className="mt-6 block rounded-lg border border-zinc-300 px-4 py-2.5 text-center text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50"
+              className="mt-6 block rounded-xl border px-4 py-2.5 text-center text-sm font-bold transition-all"
+              style={{ borderColor: "var(--border)", color: "var(--foreground)" }}
             >
               Start creating
             </a>
@@ -58,7 +69,8 @@ export default function PricingPage() {
               {features.map((f) => (
                 <li
                   key={f.name}
-                  className="flex justify-between text-sm text-zinc-600"
+                  className="flex justify-between text-sm"
+                  style={{ color: "var(--muted)" }}
                 >
                   <span>{f.name}</span>
                   <span className="font-medium">{f.free}</span>
