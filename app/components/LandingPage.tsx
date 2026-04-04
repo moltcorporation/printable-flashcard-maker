@@ -51,16 +51,27 @@ export default function LandingPage({
   relatedPages,
 }: LandingPageProps) {
   return (
-    <div className="min-h-screen bg-zinc-50 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen font-[family-name:var(--font-geist-sans)]" style={{ background: "var(--background)" }}>
       {faqs && faqs.length > 0 && <FAQSchema faqs={faqs} />}
-      <header className="border-b border-zinc-200 bg-white">
+      {/* Accent bar */}
+      <div className="h-1 bg-gradient-to-r from-[#0d7377] via-[#e8a838] to-[#6b8f71]" />
+      <header className="border-b" style={{ borderColor: "var(--border)", background: "var(--paper)" }}>
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
-          <Link href="/" className="text-xl font-bold tracking-tight text-zinc-900">
-            Printable Flashcard Maker
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#0d7377] to-[#095c5f] flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
+                <rect x="2" y="4" width="16" height="14" rx="2" />
+                <rect x="6" y="6" width="16" height="14" rx="2" fill="white" fillOpacity="0.3" />
+              </svg>
+            </div>
+            <span className="text-lg font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
+              Flashcard Maker
+            </span>
           </Link>
           <Link
             href="/pricing"
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 transition-colors"
+            className="rounded-xl px-4 py-2 text-sm font-bold text-white transition-all"
+            style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-dark))" }}
           >
             Go Pro
           </Link>
@@ -69,15 +80,17 @@ export default function LandingPage({
 
       <main className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl" style={{ color: "var(--foreground)" }}>
             {title}
           </h1>
-          <p className="mt-3 text-lg text-zinc-600">{subtitle}</p>
+          <p className="mt-3 text-lg" style={{ color: "var(--muted)" }}>{subtitle}</p>
           <Link
             href="/"
-            className="mt-6 inline-block rounded-lg bg-zinc-900 px-6 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all shadow-lg"
+            style={{ background: "linear-gradient(135deg, #0d7377, #0d9488)", boxShadow: "0 4px 16px rgba(13, 115, 119, 0.25)" }}
           >
             Start Making Flashcards — Free
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </Link>
         </div>
 
@@ -85,16 +98,16 @@ export default function LandingPage({
 
         {faqs && faqs.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-zinc-900">
+            <h2 className="text-2xl font-extrabold" style={{ color: "var(--foreground)" }}>
               Frequently Asked Questions
             </h2>
             <dl className="mt-6 space-y-6">
               {faqs.map((faq) => (
-                <div key={faq.question}>
-                  <dt className="text-base font-semibold text-zinc-900">
+                <div key={faq.question} className="rounded-2xl border p-5" style={{ borderColor: "var(--border)", background: "var(--paper)" }}>
+                  <dt className="text-base font-bold" style={{ color: "var(--foreground)" }}>
                     {faq.question}
                   </dt>
-                  <dd className="mt-2 text-sm text-zinc-600">{faq.answer}</dd>
+                  <dd className="mt-2 text-sm" style={{ color: "var(--muted)" }}>{faq.answer}</dd>
                 </div>
               ))}
             </dl>
@@ -104,14 +117,15 @@ export default function LandingPage({
         <div className="mt-12 text-center">
           <Link
             href="/"
-            className="inline-block rounded-lg bg-zinc-900 px-6 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+            className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all shadow-lg"
+            style={{ background: "linear-gradient(135deg, #0d7377, #0d9488)", boxShadow: "0 4px 16px rgba(13, 115, 119, 0.25)" }}
           >
             Create Your Flashcards Now
           </Link>
         </div>
 
-        <nav className="mt-12 border-t border-zinc-200 pt-8">
-          <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider">
+        <nav className="mt-12 border-t pt-8" style={{ borderColor: "var(--border)" }}>
+          <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: "var(--foreground)" }}>
             More Flashcard Types
           </h3>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -119,7 +133,8 @@ export default function LandingPage({
               <li key={p.href}>
                 <Link
                   href={p.href}
-                  className="inline-block rounded-full border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 hover:border-zinc-400 hover:text-zinc-900 transition-colors"
+                  className="inline-block rounded-full border px-3 py-1.5 text-sm transition-all"
+                  style={{ borderColor: "var(--border)", color: "var(--muted)" }}
                 >
                   {p.label}
                 </Link>
@@ -128,8 +143,8 @@ export default function LandingPage({
           </ul>
         </nav>
 
-        <nav className="mt-8 border-t border-zinc-200 pt-8">
-          <h3 className="text-sm font-semibold text-zinc-900 uppercase tracking-wider">
+        <nav className="mt-8 border-t pt-8" style={{ borderColor: "var(--border)" }}>
+          <h3 className="text-sm font-bold uppercase tracking-wider" style={{ color: "var(--foreground)" }}>
             More Free Printable Tools
           </h3>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -137,7 +152,8 @@ export default function LandingPage({
               <li key={t.href}>
                 <a
                   href={t.href}
-                  className="inline-block rounded-full border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 hover:border-zinc-400 hover:text-zinc-900 transition-colors"
+                  className="inline-block rounded-full border px-3 py-1.5 text-sm transition-all"
+                  style={{ borderColor: "var(--border)", color: "var(--muted)" }}
                   target="_blank"
                   rel="noopener"
                 >
@@ -149,9 +165,9 @@ export default function LandingPage({
         </nav>
       </main>
 
-      <footer className="border-t border-zinc-200 bg-white">
+      <footer className="border-t" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
         <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
-          <p className="text-center text-sm text-zinc-500">
+          <p className="text-center text-sm" style={{ color: "var(--muted-light)" }}>
             Printable Flashcard Maker — Free flashcard PDF generator.
             Create, customize, and print your own flashcards.
           </p>

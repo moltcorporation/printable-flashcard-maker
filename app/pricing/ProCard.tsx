@@ -26,23 +26,27 @@ export default function ProCard({
   };
 
   return (
-    <div className="rounded-xl border-2 border-zinc-900 bg-white p-6">
-      <h2 className="text-lg font-semibold text-zinc-900">Pro</h2>
-      <p className="mt-1 text-sm text-zinc-500">
+    <div
+      className="rounded-2xl border-2 p-6"
+      style={{ borderColor: "var(--primary)", background: "var(--paper)" }}
+    >
+      <h2 className="text-lg font-bold" style={{ color: "var(--foreground)" }}>Pro</h2>
+      <p className="mt-1 text-sm" style={{ color: "var(--muted-light)" }}>
         Unlimited flashcards, all features
       </p>
 
       {isPro ? (
         <>
-          <div className="mt-4 rounded-lg bg-green-50 border border-green-200 px-4 py-3">
-            <p className="text-sm font-medium text-green-800">
+          <div className="mt-4 rounded-xl border px-4 py-3" style={{ background: "var(--primary-light)", borderColor: "var(--primary)" }}>
+            <p className="text-sm font-bold" style={{ color: "var(--primary-dark)" }}>
               Pro active
             </p>
-            <p className="text-xs text-green-600 mt-0.5">{email}</p>
+            <p className="text-xs mt-0.5" style={{ color: "var(--primary)" }}>{email}</p>
           </div>
           <a
             href="/"
-            className="mt-6 block rounded-lg bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+            className="mt-6 block rounded-xl px-4 py-2.5 text-center text-sm font-bold text-white transition-all"
+            style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-dark))" }}
           >
             Start creating
           </a>
@@ -50,35 +54,37 @@ export default function ProCard({
       ) : (
         <>
           {/* Billing toggle */}
-          <div className="mt-4 flex items-center gap-2 rounded-lg bg-zinc-100 p-1">
+          <div className="mt-4 flex items-center gap-1 rounded-xl p-1" style={{ background: "var(--surface)" }}>
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className="flex-1 rounded-lg px-3 py-2 text-sm font-bold transition-all"
+              style={
                 billingCycle === "monthly"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-600"
-              }`}
+                  ? { background: "var(--paper)", color: "var(--foreground)", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }
+                  : { color: "var(--muted)" }
+              }
             >
               Monthly
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+              className="flex-1 rounded-lg px-3 py-2 text-sm font-bold transition-all"
+              style={
                 billingCycle === "yearly"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-600"
-              }`}
+                  ? { background: "var(--paper)", color: "var(--foreground)", boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }
+                  : { color: "var(--muted)" }
+              }
             >
               Yearly
-              <span className="ml-1 text-xs text-green-600 font-bold">Save 44%</span>
+              <span className="ml-1 text-xs font-bold" style={{ color: "var(--primary)" }}>Save 44%</span>
             </button>
           </div>
 
           <p className="mt-4">
-            <span className="text-4xl font-bold text-zinc-900">
+            <span className="text-4xl font-extrabold" style={{ color: "var(--foreground)" }}>
               {billingCycle === "monthly" ? "$2.99" : "$19.99"}
             </span>
-            <span className="text-zinc-500">
+            <span style={{ color: "var(--muted-light)" }}>
               /{billingCycle === "monthly" ? "mo" : "yr"}
             </span>
           </p>
@@ -88,32 +94,40 @@ export default function ProCard({
               href={billingCycle === "monthly" ? MONTHLY_URL : YEARLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-lg bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800"
+              className="block rounded-xl px-4 py-2.5 text-center text-sm font-bold text-white transition-all shadow-md"
+              style={{ background: "linear-gradient(135deg, var(--primary), var(--primary-dark))", boxShadow: "0 4px 16px rgba(13, 115, 119, 0.25)" }}
             >
               Get Pro
             </a>
             <button
               onClick={() => setShowVerify(!showVerify)}
-              className="w-full text-center text-xs text-zinc-500 hover:text-zinc-700 transition-colors"
+              className="w-full text-center text-xs transition-colors"
+              style={{ color: "var(--muted-light)" }}
             >
               Already purchased? Verify your email
             </button>
           </div>
 
           {showVerify && (
-            <div className="mt-3 rounded-lg border border-zinc-200 bg-zinc-50 p-3 space-y-2">
+            <div className="mt-3 rounded-xl border p-3 space-y-2" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
               <input
                 type="email"
                 value={verifyEmail}
                 onChange={(e) => setVerifyEmail(e.target.value)}
                 placeholder="Email used at checkout"
-                className="w-full rounded-md border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder-zinc-400 focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500"
+                className="w-full rounded-xl border px-3 py-2 text-sm focus:outline-none focus:ring-1"
+                style={{
+                  borderColor: "var(--border)",
+                  background: "var(--paper)",
+                  color: "var(--foreground)",
+                }}
                 onKeyDown={(e) => e.key === "Enter" && handleVerify()}
               />
               <button
                 onClick={handleVerify}
                 disabled={checking || !verifyEmail}
-                className="w-full rounded-md bg-zinc-700 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full rounded-xl px-3 py-2 text-sm font-bold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                style={{ background: "var(--primary-dark)" }}
               >
                 {checking ? "Checking..." : "Verify"}
               </button>
@@ -129,10 +143,11 @@ export default function ProCard({
         {features.map((f) => (
           <li
             key={f.name}
-            className="flex justify-between text-sm text-zinc-600"
+            className="flex justify-between text-sm"
+            style={{ color: "var(--muted)" }}
           >
             <span>{f.name}</span>
-            <span className="font-medium text-zinc-900">{f.pro}</span>
+            <span className="font-bold" style={{ color: "var(--foreground)" }}>{f.pro}</span>
           </li>
         ))}
       </ul>

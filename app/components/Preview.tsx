@@ -39,13 +39,13 @@ export default function Preview({ cards, size, template, isPro }: PreviewProps) 
     ctx.fillRect(0, 0, displayW, displayH);
 
     // Draw border
-    ctx.strokeStyle = "#e4e4e7";
+    ctx.strokeStyle = "#e0d5c7";
     ctx.lineWidth = 1;
     ctx.strokeRect(offsetX, offsetY, 8.5 * scale, 11 * scale);
 
     const activeCards = isPro ? cards : cards.slice(0, FREE_CARD_LIMIT);
     if (activeCards.length === 0) {
-      ctx.fillStyle = "#a1a1aa";
+      ctx.fillStyle = "#a09689";
       ctx.font = "14px system-ui, sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(
@@ -139,23 +139,26 @@ export default function Preview({ cards, size, template, isPro }: PreviewProps) 
   }, [cards, size, template, isPro, sizeConfig]);
 
   return (
-    <div className="rounded-xl border border-stone-200 bg-white p-3 shadow-sm">
+    <div
+      className="rounded-2xl border p-3"
+      style={{ borderColor: "var(--border)", background: "var(--paper)" }}
+    >
       <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs font-semibold text-violet-500">
+        <span className="text-xs font-bold" style={{ color: "var(--primary)" }}>
           Preview — Page 1 of{" "}
           {Math.ceil(
             (isPro ? cards.length : Math.min(cards.length, FREE_CARD_LIMIT)) /
               sizeConfig.cardsPerPage
           ) * 2 || 1}
         </span>
-        <span className="text-xs text-stone-400">
+        <span className="text-xs" style={{ color: "var(--muted-light)" }}>
           {sizeConfig.label} / {sizeConfig.cardsPerPage} per page
         </span>
       </div>
       <canvas
         ref={canvasRef}
-        className="w-full rounded-lg border border-stone-100"
-        style={{ aspectRatio: "8.5/11" }}
+        className="w-full rounded-xl border"
+        style={{ aspectRatio: "8.5/11", borderColor: "var(--border)" }}
       />
     </div>
   );

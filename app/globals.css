@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffcf7;
-  --foreground: #2c2c2c;
-  --primary: #4f7a9d;
-  --primary-dark: #3d5f7d;
-  --primary-light: #e8f1f8;
-  --warm-accent: #d9a574;
-  --warm-accent-dark: #c4906f;
-  --warm-accent-light: #f5e8de;
-  --secondary: #6b9a7d;
+  --background: #faf6f1;
+  --foreground: #2d2a26;
+  --primary: #0d7377;
+  --primary-dark: #095c5f;
+  --primary-light: #e6f5f5;
+  --accent: #e8a838;
+  --accent-dark: #c48b1e;
+  --accent-light: #fef6e6;
+  --secondary: #6b8f71;
   --secondary-light: #e8f3ed;
-  --border: #dcc9b6;
-  --border-dark: #c9b5a0;
-  --muted: #706860;
-  --muted-light: #9a8c80;
-  --surface: #f5ede3;
-  --paper: #fffbf8;
+  --border: #e0d5c7;
+  --border-dark: #c9b9a5;
+  --muted: #7a7067;
+  --muted-light: #a09689;
+  --surface: #f3ece3;
+  --paper: #fffcf8;
+  --card-shadow: rgba(45, 42, 38, 0.08);
 }
 
 @theme inline {
@@ -33,118 +34,9 @@ body {
   line-height: 1.65;
 }
 
-/* ===== OVERRIDE GENERIC ZINC ===== */
-.bg-white { background-color: var(--paper) !important; }
-.bg-zinc-50 { background-color: var(--surface) !important; }
-.bg-zinc-100 { background-color: var(--primary-light) !important; }
-.bg-zinc-900 {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
-  color: white !important;
-}
-.bg-zinc-900:hover, .hover\:bg-zinc-800:hover {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, #2c4a5f 100%) !important;
-}
-
-.text-zinc-900 { color: var(--foreground) !important; }
-.text-zinc-800 { color: #3a3a3a !important; }
-.text-zinc-700 { color: #5a5a5a !important; }
-.text-zinc-600 { color: var(--muted) !important; }
-.text-zinc-500 { color: var(--muted-light) !important; }
-
-.border-zinc-200 { border-color: var(--border) !important; }
-.border-zinc-300 { border-color: var(--border-dark) !important; }
-
-/* Accent colors */
-.text-blue-600, .text-indigo-600 { color: var(--primary) !important; }
-.ring-2 { --tw-ring-color: var(--warm-accent) !important; }
-
-/* ===== HEADING STYLE ===== */
-main > h1:first-of-type, h1.text-3xl, h1.text-4xl {
-  font-weight: 800 !important;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--primary-dark), var(--warm-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Warm accent bar at top */
-body::before {
-  content: "";
-  display: block;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--warm-accent), var(--secondary));
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-}
-
-body { padding-top: 4px; }
-
-/* Section heading accent */
-.text-2xl.font-semibold, h2.text-2xl, h2.text-xl {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-.text-2xl.font-semibold::after, h2.text-2xl::after, h2.text-xl::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 48px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--warm-accent));
-  border-radius: 2px;
-}
-
-/* ===== CARD ENHANCEMENTS ===== */
-.rounded-lg.border, .rounded-xl.border {
-  border-color: var(--border) !important;
-  box-shadow: 0 1px 4px rgba(44, 44, 44, 0.05);
-  transition: all 0.2s ease;
-}
-.rounded-lg.border:hover, .rounded-xl.border:hover {
-  box-shadow: 0 8px 24px rgba(79, 122, 157, 0.1);
-  border-color: var(--primary) !important;
-  transform: translateY(-2px);
-}
-
-/* ===== FLASHCARD PREVIEW ENHANCEMENTS ===== */
-/* Make card previews feel like real cards */
-.rounded-lg.shadow, .rounded-xl.shadow {
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
-  border-radius: 12px !important;
-}
-
-/* ===== PRICING ===== */
-.ring-2.ring-offset-2 {
-  box-shadow: 0 8px 32px rgba(217, 165, 116, 0.15) !important;
-}
-
-/* ===== CTA BUTTONS ===== */
-/* Secondary / outline buttons get warm accent */
-.bg-white.border:hover, [class*="border-zinc"]:hover {
-  border-color: var(--warm-accent) !important;
-}
-
-/* ===== FOOTER ===== */
-footer, .border-t {
-  border-color: var(--border) !important;
-  background: var(--surface) !important;
-}
-
-/* ===== FAQ ===== */
-details { border-color: var(--border) !important; }
-details[open] summary { color: var(--primary-dark) !important; }
-
 /* ===== PRINT ===== */
 @media print {
-  body { background: white !important; padding-top: 0; }
-  body::before { display: none; }
-  .rounded-lg.border { box-shadow: none !important; }
+  body { background: white !important; }
 }
 
 @media (max-width: 640px) {
