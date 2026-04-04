@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useProStatus } from "../lib/useProStatus";
 
-const MONTHLY_URL = "https://buy.stripe.com/14AaEXaNZ8Ole1T6Ik3Nm0J";
-const YEARLY_URL = "https://buy.stripe.com/7sYcN5f4f1lTbTLgiU3Nm0K";
+const YEARLY_URL = "https://buy.stripe.com/fZu6oHbS37Kh6zr0jW3Nm1g";
 
 export default function ProCard({
   features,
@@ -12,7 +11,6 @@ export default function ProCard({
   features: { name: string; free: string; pro: string }[];
 }) {
   const { isPro, email, checking, checkPro } = useProStatus();
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("yearly");
   const [verifyEmail, setVerifyEmail] = useState("");
   const [showVerify, setShowVerify] = useState(false);
   const [verifyError, setVerifyError] = useState("");
@@ -49,43 +47,18 @@ export default function ProCard({
         </>
       ) : (
         <>
-          {/* Billing toggle */}
-          <div className="mt-4 flex items-center gap-2 rounded-lg bg-zinc-100 p-1">
-            <button
-              onClick={() => setBillingCycle("monthly")}
-              className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                billingCycle === "monthly"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-600"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setBillingCycle("yearly")}
-              className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
-                billingCycle === "yearly"
-                  ? "bg-white text-zinc-900 shadow-sm"
-                  : "text-zinc-600"
-              }`}
-            >
-              Yearly
-              <span className="ml-1 text-xs text-green-600 font-bold">Save 44%</span>
-            </button>
-          </div>
-
           <p className="mt-4">
             <span className="text-4xl font-bold text-zinc-900">
-              {billingCycle === "monthly" ? "$2.99" : "$19.99"}
+              $19.99
             </span>
             <span className="text-zinc-500">
-              /{billingCycle === "monthly" ? "mo" : "yr"}
+              /yr
             </span>
           </p>
 
           <div className="mt-6 space-y-2">
             <a
-              href={billingCycle === "monthly" ? MONTHLY_URL : YEARLY_URL}
+              href={YEARLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block rounded-lg bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800"
