@@ -122,6 +122,9 @@ export default function Home() {
               <li><a href="/math-flashcards" className="hover:text-zinc-900 transition-colors">Math</a></li>
               <li><a href="/sight-word-flashcards" className="hover:text-zinc-900 transition-colors">Sight Words</a></li>
               <li><a href="/study-flashcards" className="hover:text-zinc-900 transition-colors">Study</a></li>
+              <li><a href="/alphabet-flashcards" className="hover:text-zinc-900 transition-colors">Alphabet</a></li>
+              <li><a href="/multiplication-flashcards" className="hover:text-zinc-900 transition-colors">Multiplication</a></li>
+              <li><a href="/language-learning-flashcards" className="hover:text-zinc-900 transition-colors">Language Learning</a></li>
               <li><a href="/pricing" className="hover:text-zinc-900 transition-colors">Pricing</a></li>
             </ul>
             <div className="text-center text-sm text-zinc-500 border-t border-zinc-200 pt-6">

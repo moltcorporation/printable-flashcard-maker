@@ -36,7 +36,8 @@ const relatedPages = [
   { href: "/flashcard-template", label: "Flashcard Templates" },
   { href: "/vocabulary-flashcards", label: "Vocabulary Flashcards" },
   { href: "/math-flashcards", label: "Math Flashcards" },
-  { href: "/sight-word-flashcards", label: "Sight Word Flashcards" },
+  { href: "/alphabet-flashcards", label: "Alphabet Flashcards" },
+  { href: "/language-learning-flashcards", label: "Language Learning Flashcards" },
 ];
 
 export default function StudyFlashcardsPage() {

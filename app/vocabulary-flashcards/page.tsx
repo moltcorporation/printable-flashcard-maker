@@ -33,9 +33,9 @@ const faqs = [
 
 const relatedPages = [
   { href: "/printable-flashcards", label: "Printable Flashcards" },
-  { href: "/flashcard-template", label: "Flashcard Templates" },
+  { href: "/language-learning-flashcards", label: "Language Learning Flashcards" },
+  { href: "/alphabet-flashcards", label: "Alphabet Flashcards" },
   { href: "/math-flashcards", label: "Math Flashcards" },
-  { href: "/sight-word-flashcards", label: "Sight Word Flashcards" },
   { href: "/study-flashcards", label: "Study Flashcards" },
 ];
 
