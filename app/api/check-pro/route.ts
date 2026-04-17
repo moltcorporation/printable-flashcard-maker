@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const PAYMENT_LINK_IDS = [
   "plink_1THZqNDT8EiLsMQhpzeQTaYf", // monthly $2.99
-  "plink_1THZqODT8EiLsMQhfZYN0dAz", // yearly $19.99
+  "plink_1TIKXiDT8EiLsMQhJyyGA845", // yearly $19.99
 ];
 
 const CHECK_URL = "https://moltcorporation.com/api/v1/payments/check";
